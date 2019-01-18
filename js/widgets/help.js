@@ -46,58 +46,8 @@ function HelpWidget () {
         var header = buttonTable.createTHead();
         var row = header.insertRow(0);
 
-        // For the button callbacks
-        var that = this;
 
-        if (blocks === null) {
-            var cell = this._addButton(row, 'up.svg', ICONSIZE, _('Previous page'));
-
-            cell.onclick=function() {
-                page = page - 1;
-                if (page < 0) {
-                    page = HELPCONTENT.length - 1;
-                }
-
-                that._showPage(page);
-            };
-
-            cell.onmouseover=function() {
-                this.style.backgroundColor = platformColor.selectorSelected;
-            };
-
-            cell.onmouseout=function() {
-                this.style.backgroundColor = platformColor.selectorBackground;
-            };
-
-            var cell = this._addButton(row, 'down.svg', ICONSIZE, _('Next page'));
-
-            cell.onclick=function() {
-                page = page + 1;
-                if (page === HELPCONTENT.length) {
-                    page = 0;
-                }
-
-                that._showPage(page);
-            };
-
-            cell.onmouseover=function() {
-                this.style.backgroundColor = platformColor.selectorSelected;
-            };
-
-            cell.onmouseout=function() {
-                this.style.backgroundColor = platformColor.selectorBackground;
-            };
-        } else {
-            if (blocks.activeBlock.name === null) {
-                helpDiv.style.display = 'none';
-            } else {
-                var label = blocks.blockList[blocks.activeBlock].protoblock.staticLabels[0];
-	    }
-
-            var cell = this._addLabel(row, ICONSIZE, label);
-	}
-
-        var cell = this._addButton(row, 'close-button.svg', ICONSIZE, _('Close'));
+        var cell = this._addButton
 
         cell.onclick=function() {
             helpDiv.style.display = 'none';
@@ -109,29 +59,6 @@ function HelpWidget () {
 
         cell.onmouseout=function() {
             this.style.backgroundColor = platformColor.selectorBackground;
-        };
-
-        // We use this cell as a handle for dragging.
-        var dragCell = this._addButton(row, 'grab.svg', ICONSIZE, _('Drag'));
-        dragCell.style.cursor = 'move';
-
-        this._dx = dragCell.getBoundingClientRect().left - helpDiv.getBoundingClientRect().left;
-        this._dy = dragCell.getBoundingClientRect().top - helpDiv.getBoundingClientRect().top;
-        this._dragging = false;
-        this._target = false;
-        this._dragCellHTML = dragCell.innerHTML;
-
-        dragCell.onmouseover = function(e) {
-            // In order to prevent the dragged item from triggering a
-            // browser reload in Firefox, we empty the cell contents
-            // before dragging.
-            dragCell.innerHTML = '';
-        };
-
-        dragCell.onmouseout = function(e) {
-            if (!that._dragging) {
-                dragCell.innerHTML = that._dragCellHTML;
-            }
         };
 
         canvas.ondragover = function(e) {

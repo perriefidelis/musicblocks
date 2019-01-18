@@ -680,28 +680,49 @@ table {
 
 #helpDiv {
     position: absolute;
-    top: 20%;
-    left: 20%;
-    width: 350px;
-    height: 400px;
-    background: rgba(196, 196, 196, 1.0) !important;
+    top: 187px;
+    left: 200px;
+    width: 407px;
+    height: 308px;
+    background: #ffffff !important;
+    box-shadow: 0px 4px 4px rgba(189, 189, 189, 0.25);
     overflow-y: auto;
     -webkit-user-select: none;
 }
 
-#helpButtonsDiv {
-    position: relative;
-    left: 0px;
-    top: 0px;
-    border: 0 !important;
-}
-
 #helpBodyDiv {
-    position: relative;
-    left: 0px;
-    top: 0px;
+    position: sticky;
+    left: 31px;
+    top: 50px;
     border: 0 !important;
     overflow-x: auto;
+}
+
+#helpButtonsDiv {
+    position: fixed;
+    left: 200px;
+    top: 145px;
+    width: 407px;
+    height: 50px;
+    background: #4097EC !important;
+    overflow-y: auto;
+    -webkit-user-select: none;
+}
+
+#takeatour {
+    position: fixed;
+    left: 240px;
+    top: 207px;
+    border: 0 !important;
+    background: #ffffff !important;
+}
+
+#skip {
+    position: fixed;
+    left: 583px;
+    top: 205px;
+    border: 0 !important;
+    background: #ffffff !important;
 }
 
 #pscDiv {
